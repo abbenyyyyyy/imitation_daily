@@ -11,7 +11,7 @@ import java.util.Date;
 public class News {
 
     @Id
-    @Column(columnDefinition = "BIGINT(20) UNSIGNED")
+    @Column(nullable = false,columnDefinition = "BIGINT(20) UNSIGNED")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
