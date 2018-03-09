@@ -1,0 +1,38 @@
+[
+    {
+        "category_id": 1,
+        "category_name": "投票"
+    },
+    {
+        "category_id": 2,
+        "category_name": "我说"
+    },
+    {
+        "category_id": 3,
+        "category_name": "娱乐"
+    },
+    {
+        "category_id": 4,
+        "category_name": "智能"
+    },
+    {
+        "category_id": 5,
+        "category_name": "城市"
+    },
+    {
+        "category_id": 10,
+        "category_name": "广告"
+    },
+    {
+        "category_id": 17,
+        "category_name": "设计"
+    },
+    {
+        "category_id": 18,
+        "category_name": "商业"
+    },
+    {
+        "category_id": 54,
+        "category_name": "游戏"
+    }
+]
