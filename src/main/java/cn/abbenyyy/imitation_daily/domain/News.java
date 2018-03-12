@@ -1,9 +1,10 @@
 package cn.abbenyyy.imitation_daily.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -11,19 +12,27 @@ import java.util.Date;
 public class News {
 
     @Id
-    @Column(nullable = false,columnDefinition = "BIGINT(20) UNSIGNED")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, columnDefinition = "BIGINT(20) UNSIGNED")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
 
-    @Column(columnDefinition = "BIGINT(20) UNSIGNED DEFAULT 0")
-    private Long likes;
+    private String description;
 
+    @Column(columnDefinition = "BIGINT(20) UNSIGNED DEFAULT 0")
+    private Long praiseCount= 0L;
+
+    @Column(columnDefinition = "BIGINT(20) UNSIGNED DEFAULT 0")
+    private Long commentCount = 0L;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
     @Column(updatable = false)
     @CreationTimestamp
     private Date createTime;
+
 
     private String imgUrl;
 
@@ -36,7 +45,13 @@ public class News {
     @Column(columnDefinition = "TEXT")
     private String content;
 
-    protected News(){}
+    @Column(columnDefinition = "BIGINT(20) UNSIGNED")
+    private Long cssColumn;
+
+    private String appview;
+
+    protected News() {
+    }
 
     public Long getId() {
         return id;
@@ -52,14 +67,6 @@ public class News {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Long getLikes() {
-        return likes;
-    }
-
-    public void setLikes(Long likes) {
-        this.likes = likes;
     }
 
     public Date getCreateTime() {
@@ -100,5 +107,45 @@ public class News {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Long getPraiseCount() {
+        return praiseCount;
+    }
+
+    public void setPraiseCount(Long praiseCount) {
+        this.praiseCount = praiseCount;
+    }
+
+    public Long getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(Long commentCount) {
+        this.commentCount = commentCount;
+    }
+
+    public Long getCssColumn() {
+        return cssColumn;
+    }
+
+    public void setCssColumn(Long cssColumn) {
+        this.cssColumn = cssColumn;
+    }
+
+    public String getAppview() {
+        return appview;
+    }
+
+    public void setAppview(String appview) {
+        this.appview = appview;
     }
 }
