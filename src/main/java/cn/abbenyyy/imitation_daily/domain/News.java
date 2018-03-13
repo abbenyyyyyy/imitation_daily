@@ -148,4 +148,22 @@ public class News {
     public void setAppview(String appview) {
         this.appview = appview;
     }
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", praiseCount=" + praiseCount +
+                ", commentCount=" + commentCount +
+                ", createTime=" + createTime +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", newsCategoryId=" + newsCategoryId +
+                ", statusId=" + statusId +
+                ", content='" + content + '\'' +
+                ", cssColumn=" + cssColumn +
+                ", appview='" + appview + '\'' +
+                '}';
+    }
 }
