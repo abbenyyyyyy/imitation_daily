@@ -1,5 +1,6 @@
 package cn.abbenyyy.imitation_daily.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -21,7 +22,9 @@ public class User {
     @NotNull
     private String password;
 
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = false)
     @CreationTimestamp
     private Date createTime;
 

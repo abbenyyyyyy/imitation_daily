@@ -7,7 +7,7 @@ public class NewsCategory {
 
     @Id
     @Column(nullable = false, columnDefinition = "BIGINT(20) UNSIGNED")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
 
     private String categoryName;

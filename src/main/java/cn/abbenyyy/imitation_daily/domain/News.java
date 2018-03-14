@@ -21,18 +21,16 @@ public class News {
     private String description;
 
     @Column(columnDefinition = "BIGINT(20) UNSIGNED DEFAULT 0")
-    private Long praiseCount= 0L;
+    private Long praiseCount = 0L;
 
     @Column(columnDefinition = "BIGINT(20) UNSIGNED DEFAULT 0")
     private Long commentCount = 0L;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
     @Column(updatable = false)
     @CreationTimestamp
     private Date createTime;
-
 
     private String imgUrl;
 
