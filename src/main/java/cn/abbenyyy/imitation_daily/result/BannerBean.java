@@ -1,34 +1,37 @@
 package cn.abbenyyy.imitation_daily.result;
 
-import java.util.Date;
+import cn.abbenyyy.imitation_daily.domain.News;
 
-public class FirstBean {
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
+public class BannerBean {
     private Long id;
     private String title;
     private String description;
     private Long praiseCount;
     private Long commentCount;
-    private Date createTime;
+    private String createTime;
     private String imgUrl;
     private Long cssColumn;
     private String appview;
     private String categoryName;
 
-    public FirstBean() {
+    public BannerBean() {
     }
 
-    public FirstBean(Long id, String title, String description, Long praiseCount, Long commentCount, Date createTime,
-                     String imgUrl, Long cssColumn, String appview, String categoryName) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.praiseCount = praiseCount;
-        this.commentCount = commentCount;
-        this.createTime = createTime;
-        this.imgUrl = imgUrl;
-        this.cssColumn = cssColumn;
-        this.appview = appview;
-        this.categoryName = categoryName;
+    public BannerBean(News news) {
+        setId(news.getId());
+        setTitle(news.getTitle());
+        setDescription(news.getDescription());
+        setPraiseCount(news.getPraiseCount());
+        setCommentCount(news.getCommentCount());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        setCreateTime(simpleDateFormat.format(news.getCreateTime()));
+        setImgUrl(news.getImgUrl());
+        setCssColumn(news.getCssColumn());
+        setAppview(news.getAppview());
+        setCategoryName(news.getNewsCategory().getCategoryName());
     }
 
     public Long getId() {
@@ -71,11 +74,11 @@ public class FirstBean {
         this.commentCount = commentCount;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -110,4 +113,5 @@ public class FirstBean {
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
+
 }

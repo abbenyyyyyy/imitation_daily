@@ -1,6 +1,7 @@
 package cn.abbenyyy.imitation_daily.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -34,11 +35,15 @@ public class News {
 
     private String imgUrl;
 
-    @Column(columnDefinition = "BIGINT(20) UNSIGNED")
-    private Long newsCategoryId;
+//    @Column(columnDefinition = "BIGINT(20) UNSIGNED")
+//    private Long newsCategoryId;
 
     @Column(columnDefinition = "BIGINT(20) UNSIGNED")
     private Long statusId;
+
+    @ManyToOne
+    @JoinColumn(name = "news_category_id")
+    private NewsCategory newsCategory;
 
     @Column(columnDefinition = "TEXT")
     private String content;
@@ -83,13 +88,13 @@ public class News {
         this.imgUrl = imgUrl;
     }
 
-    public Long getNewsCategoryId() {
-        return newsCategoryId;
-    }
-
-    public void setNewsCategoryId(Long newsCategoryId) {
-        this.newsCategoryId = newsCategoryId;
-    }
+//    public Long getNewsCategoryId() {
+//        return newsCategoryId;
+//    }
+//
+//    public void setNewsCategoryId(Long newsCategoryId) {
+//        this.newsCategoryId = newsCategoryId;
+//    }
 
     public Long getStatusId() {
         return statusId;
@@ -147,21 +152,11 @@ public class News {
         this.appview = appview;
     }
 
-    @Override
-    public String toString() {
-        return "News{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", praiseCount=" + praiseCount +
-                ", commentCount=" + commentCount +
-                ", createTime=" + createTime +
-                ", imgUrl='" + imgUrl + '\'' +
-                ", newsCategoryId=" + newsCategoryId +
-                ", statusId=" + statusId +
-                ", content='" + content + '\'' +
-                ", cssColumn=" + cssColumn +
-                ", appview='" + appview + '\'' +
-                '}';
+    public NewsCategory getNewsCategory() {
+        return newsCategory;
+    }
+
+    public void setNewsCategory(NewsCategory newsCategory) {
+        this.newsCategory = newsCategory;
     }
 }

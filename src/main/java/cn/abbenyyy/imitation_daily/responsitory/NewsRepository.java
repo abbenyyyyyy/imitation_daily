@@ -15,5 +15,11 @@ public interface NewsRepository extends JpaRepository<News, Long> {
             "where db_imitationdaily.news.news_category_id = db_imitationdaily.news_category.category_id order by news.create_time " +
             "ASC limit :page,:pageSize",
             nativeQuery = true)
-    List<Object[]> findAllHaveCategoryName(@Param("page") int page, @Param("pageSize") int pageSize);
+    List<Object[]> findByNativeSQL(@Param("page") int page, @Param("pageSize") int pageSize);
+
+    @Query("select n from News n where n.cssColumn =:cssColumn order by n.createTime desc")
+    List<News> findByCssColumn(@Param("cssColumn") long cssColumn, Pageable pageable);
+
+    @Query("select n from News n where n.newsCategory.categoryId > 2 order by n.createTime desc ")
+    List<News> findByMore(Pageable pageable);
 }
