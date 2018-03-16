@@ -6,12 +6,13 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "message")
+@Entity
+@Table(name = "message")
 public class Message {
 
     @Id
     @Column(nullable = false, columnDefinition = "BIGINT(20) UNSIGNED")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long messageId;
 
     @Column(nullable = false, columnDefinition = "BIGINT(20) UNSIGNED")

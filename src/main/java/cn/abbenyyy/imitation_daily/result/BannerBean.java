@@ -1,10 +1,13 @@
 package cn.abbenyyy.imitation_daily.result;
 
 import cn.abbenyyy.imitation_daily.domain.News;
+import cn.abbenyyy.imitation_daily.domain.NewsColumn;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BannerBean {
     private Long id;
     private String title;
@@ -16,9 +19,6 @@ public class BannerBean {
     private Long cssColumn;
     private String appview;
     private String categoryName;
-
-    public BannerBean() {
-    }
 
     public BannerBean(News news) {
         setId(news.getId());
@@ -32,6 +32,15 @@ public class BannerBean {
         setCssColumn(news.getCssColumn());
         setAppview(news.getAppview());
         setCategoryName(news.getNewsCategory().getCategoryName());
+    }
+
+    public BannerBean(NewsColumn newsColumn){
+        setId(newsColumn.getColumnId());
+        setTitle(newsColumn.getColumnName());
+        setDescription(newsColumn.getColumnDescription());
+        setImgUrl(newsColumn.getImgUrl());
+        setCssColumn(-1L);
+        setAppview(newsColumn.getAppview());
     }
 
     public Long getId() {

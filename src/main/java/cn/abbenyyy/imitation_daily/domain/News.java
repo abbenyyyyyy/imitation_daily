@@ -1,9 +1,7 @@
 package cn.abbenyyy.imitation_daily.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -35,9 +33,6 @@ public class News {
 
     private String imgUrl;
 
-//    @Column(columnDefinition = "BIGINT(20) UNSIGNED")
-//    private Long newsCategoryId;
-
     @Column(columnDefinition = "BIGINT(20) UNSIGNED")
     private Long statusId;
 
@@ -52,6 +47,10 @@ public class News {
     private Long cssColumn;
 
     private String appview;
+
+    @ManyToOne
+    @JoinColumn(name = "new_column_id")
+    private NewsColumn newsColumn;
 
     protected News() {
     }
@@ -87,14 +86,6 @@ public class News {
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
-
-//    public Long getNewsCategoryId() {
-//        return newsCategoryId;
-//    }
-//
-//    public void setNewsCategoryId(Long newsCategoryId) {
-//        this.newsCategoryId = newsCategoryId;
-//    }
 
     public Long getStatusId() {
         return statusId;
@@ -158,5 +149,13 @@ public class News {
 
     public void setNewsCategory(NewsCategory newsCategory) {
         this.newsCategory = newsCategory;
+    }
+
+    public NewsColumn getNewsColumn() {
+        return newsColumn;
+    }
+
+    public void setNewsColumn(NewsColumn newsColumn) {
+        this.newsColumn = newsColumn;
     }
 }

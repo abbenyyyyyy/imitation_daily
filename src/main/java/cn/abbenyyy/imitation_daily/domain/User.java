@@ -7,11 +7,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Entity(name = "user")
+@Entity
+@Table(name = "user")
 public class User {
     @Id
     @Column(nullable = false, columnDefinition = "BIGINT(20) UNSIGNED")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     @NotNull

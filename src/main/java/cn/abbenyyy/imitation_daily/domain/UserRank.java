@@ -2,11 +2,12 @@ package cn.abbenyyy.imitation_daily.domain;
 
 import javax.persistence.*;
 
-@Entity(name = "user_rank")
+@Entity
+@Table(name = "user_rank")
 public class UserRank {
     @Id
     @Column(nullable = false, columnDefinition = "BIGINT(20) UNSIGNED")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rankId;
 
     private String rankName;

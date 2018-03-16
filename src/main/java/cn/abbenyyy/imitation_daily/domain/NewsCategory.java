@@ -2,7 +2,8 @@ package cn.abbenyyy.imitation_daily.domain;
 
 import javax.persistence.*;
 
-@Entity(name = "news_category")
+@Entity
+@Table(name = "news_category")
 public class NewsCategory {
 
     @Id
