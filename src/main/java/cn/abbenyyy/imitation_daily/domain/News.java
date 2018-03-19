@@ -158,4 +158,6 @@ public class News {
     public void setNewsColumn(NewsColumn newsColumn) {
         this.newsColumn = newsColumn;
     }
+
+
 }

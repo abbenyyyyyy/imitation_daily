@@ -34,7 +34,8 @@ CREATE TABLE IF NOT EXISTS `db_imitationdaily`.`news` (
   `appview` VARCHAR(255) NULL COMMENT '移动端的跳转URL',
   `new_column_id` BIGINT(20) UNSIGNED NULL COMMENT '所属栏目ID，不一定有所属栏目',
   `comment_count` BIGINT(20) NULL DEFAULT 0 COMMENT '暂时不提供留言功能，替补虚构留言数目',
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  INDEX `create_time_idx` (`create_time` ASC))
 ENGINE = InnoDB;
 
 
