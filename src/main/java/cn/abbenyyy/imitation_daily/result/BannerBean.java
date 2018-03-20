@@ -34,7 +34,21 @@ public class BannerBean {
         setCategoryName(news.getNewsCategory().getCategoryName());
     }
 
-    public BannerBean(NewsColumn newsColumn){
+    public BannerBean(News news, boolean isRealBanner) {
+        setId(news.getId());
+        setTitle(news.getTitle());
+        setDescription(news.getDescription());
+        setPraiseCount(news.getPraiseCount());
+        setCommentCount(news.getCommentCount());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        setCreateTime(simpleDateFormat.format(news.getCreateTime()));
+        setImgUrl(isRealBanner ? news.getImgUrl() + "/banner755+450" : news.getImgUrl());
+        setCssColumn(news.getCssColumn());
+        setAppview(news.getAppview());
+        setCategoryName(news.getNewsCategory().getCategoryName());
+    }
+
+    public BannerBean(NewsColumn newsColumn) {
         setId(newsColumn.getColumnId());
         setTitle(newsColumn.getColumnName());
         setDescription(newsColumn.getColumnDescription());

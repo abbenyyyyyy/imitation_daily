@@ -33,7 +33,7 @@ public class NewsService {
         List<BannerBean> bannerNewsList = new ArrayList<>();
         List<News> newsList = newsRepository.findByCssColumn(2, PageRequest.of(0, 5));
         for (News n : newsList) {
-            BannerBean bannerBean = new BannerBean(n);
+            BannerBean bannerBean = new BannerBean(n,true);
             bannerNewsList.add(bannerBean);
         }
         return bannerNewsList;
