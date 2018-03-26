@@ -76,6 +76,9 @@ public class NewsService {
         List<BannerBean> homepageData = new ArrayList<>();
         for (int i = 0; i < Math.min(20, newsList.size()); i++) {
             BannerBean homepageDataItem = new BannerBean(newsList.get(i));
+            if(homepageDataItem.getCssColumn() == 0){
+                homepageDataItem.setCssColumn(2L);
+            }
             homepageData.add(homepageDataItem);
         }
         return new HomePageBean(homepageData, newsList.size() == 25);
