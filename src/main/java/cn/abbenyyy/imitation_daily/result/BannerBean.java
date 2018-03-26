@@ -42,7 +42,7 @@ public class BannerBean {
         setCommentCount(news.getCommentCount());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         setCreateTime(simpleDateFormat.format(news.getCreateTime()));
-        setImgUrl(isRealBanner ? news.getImgUrl() + "/banner755+450" : news.getImgUrl());
+        setImgUrl(isRealBanner ? news.getImgUrl() + "/755+450" : news.getImgUrl());
         setCssColumn(news.getCssColumn());
         setAppview(news.getAppview());
         setCategoryName(news.getNewsCategory().getCategoryName());
