@@ -43,4 +43,9 @@ public class NewsController {
     public Result<HomePageBean> fetchMoreHomePageData(@RequestParam(name = "lastId", defaultValue = "-1") long lastKey) {
         return lastKey == -1L ? Result.badRequest() : Result.ok(newsService.findMoreHomePageData(lastKey));
     }
+
+    @GetMapping("/mobile/articlemore")
+    public Result<HomePageBean> fetchMoreHomePageDataByMobile(@RequestParam(name = "lastId", defaultValue = "-1") long lastKey){
+        return lastKey == -1L ? Result.badRequest() : Result.ok(newsService.findMoreHomePageDataByMobile(lastKey));
+    }
 }
