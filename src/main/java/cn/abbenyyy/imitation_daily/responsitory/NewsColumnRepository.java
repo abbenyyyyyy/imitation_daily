@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface NewsColumnRepository extends JpaRepository<NewsColumn,Long>{
 
-    @Query("select n from NewsColumn n order by n.columnId desc ")
+    @Query("select n from NewsColumn n order by n.columnId desc")
     List<NewsColumn> findLimitOneByColumnId(Pageable pageable);
 }
