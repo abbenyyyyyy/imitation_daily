@@ -4,10 +4,7 @@ import cn.abbenyyy.imitation_daily.domain.YaganyongImg;
 import cn.abbenyyy.imitation_daily.service.YaganyongImgService;
 import cn.abbenyyy.imitation_daily.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -48,4 +45,8 @@ public class YaganyongImgController {
         return changeId == -1L ? Result.badRequest() : Result.ok(yaganyongImgService.incrementLikes(changeId));
     }
 
+    @PostMapping("/save")
+    public Result<YaganyongImg> save(@RequestBody YaganyongImg entity) {
+        return Result.ok(yaganyongImgService.saveYaganyongImg(entity));
+    }
 }

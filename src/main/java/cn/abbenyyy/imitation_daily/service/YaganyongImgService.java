@@ -33,4 +33,8 @@ public class YaganyongImgService {
     public int incrementLikes(Long changeId) {
         return yaganyongImgRepository.incrementLikes(changeId);
     }
+
+    public YaganyongImg saveYaganyongImg(YaganyongImg yaganyongImg){
+        return yaganyongImgRepository.save(yaganyongImg);
+    }
 }
